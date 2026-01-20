@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.icon {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+.icon-arrowDown {
+  mask-image: url(arrowDown.svg);
+  -webkit-mask-image: url(arrowDown.svg);
+}
+.icon-login {
+  mask-image: url(login.svg);
+  -webkit-mask-image: url(login.svg);
+}
+
+.icon-arrowUp{
+    mask-image: url(arrowUp.svg);
+  -webkit-mask-image: url(arrowUp.svg);
+}
+
+.icon-close{
+    mask-image: url(close.svg);
+  -webkit-mask-image: url(close.svg);
+}
+
+.icon-check{
+    mask-image: url(check.svg);
+  -webkit-mask-image: url(check.svg);
+}
+.icon-plus{
+    mask-image: url(plus.svg);
+  -webkit-mask-image: url(plus.svg);
+}
