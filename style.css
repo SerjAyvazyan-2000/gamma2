@@ -674,7 +674,6 @@ header {
 .mobile-btn-fixed {
   display: none;
 }
-
 .hero-description {
   max-width: 507px;
   width: 100%;
@@ -788,7 +787,6 @@ header {
   z-index: 5;
   pointer-events: none;
 }
-
 .hero-splide::before {
   top: -100px;
   background: linear-gradient(
@@ -799,7 +797,6 @@ header {
     rgba(255, 255, 255, 0) 100%
   );
 }
-
 .hero-splide::after {
   bottom: -100px;
   background: linear-gradient(
@@ -810,7 +807,6 @@ header {
     rgba(255, 255, 255, 0) 100%
   );
 }
-
 .splide__track {
   overflow: unset !important;
 }
@@ -1791,6 +1787,7 @@ footer::after {
     font-weight: 600;
     font-size: 18px;
     padding: 13px;
+    height: 48px;
   }
   .header-login {
     width: 100%;
