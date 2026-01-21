@@ -292,3 +292,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(hero);
 });
+
+
+
+const canvas = document.getElementById('stars-canvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = 420;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const stars = [];
+const STAR_COUNT = 200;
+
+for (let i = 0; i < STAR_COUNT; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.2,
+    a: Math.random(),
+    s: Math.random() * 0.02
+  });
+}
+
+const shootingStars = [];
+
+function createShootingStar() {
+  shootingStars.push({
+    x: canvas.width * 0.7 + Math.random() * canvas.width * 0.3,
+    y: -50,
+    len: Math.random() * 30 + 40,
+    speed: Math.random() * 4 + 3,
+    angle: Math.PI * 0.6 + Math.random() * 0.2,
+      rotateSpeed: (Math.random() - 0.9) * 0.01
+  
+  });
+}
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  stars.forEach(s => {
+    s.a += s.s;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${0.3 + Math.sin(s.a) * 0.3})`;
+    ctx.fill();
+  });
+
+for (let i = shootingStars.length - 1; i >= 0; i--) {
+  const st = shootingStars[i];
+
+  ctx.beginPath();
+  ctx.moveTo(st.x, st.y);
+  ctx.lineTo(
+    st.x - Math.cos(st.angle) * st.len,
+    st.y - Math.sin(st.angle) * st.len
+  );
+
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)'; 
+  ctx.lineWidth = 0.5;                         
+  ctx.stroke();
+
+  st.x += Math.cos(st.angle) * st.speed;
+  st.y += Math.sin(st.angle) * st.speed;
+
+  if (st.x < -200 || st.y > canvas.height + 200) {
+    shootingStars.splice(i, 1);
+  }
+}
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+setInterval(() => {
+  if (Math.random() > 0.2) {
+    createShootingStar();
+  }
+}, 2000);

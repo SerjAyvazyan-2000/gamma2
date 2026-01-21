@@ -1190,8 +1190,8 @@ header {
   background: linear-gradient(to bottom, #ffffff 4%, #afe7fc 80%, #a8d1ff 100%);
   display: flex;
 }
-.gamma-logo-block img{
-  opacity: .5;
+.gamma-logo-block img {
+  opacity: 0.5;
 }
 .reviews-section {
   padding: 80px 0 80px 0;
@@ -1381,10 +1381,10 @@ header {
   margin: 40px auto 0;
   display: block;
   max-width: max-content;
-  transition: .3s;
+  transition: 0.3s;
 }
-.trust-link:hover{
- background: #ebf3fe;
+.trust-link:hover {
+  background: #ebf3fe;
 }
 
 .trust-section-bg {
@@ -1416,6 +1416,7 @@ footer {
   position: relative;
   z-index: 2;
   padding: 100px 0;
+  overflow: hidden;
 }
 footer::after {
   content: "";
@@ -1433,6 +1434,26 @@ footer::after {
   );
   z-index: -1;
 }
+.footer-stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 33%;
+  z-index: 1;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to top, transparent, black 50%);
+  mask-image: linear-gradient(to top, transparent, black 50%);
+  transform: translateY(-50%);
+}
+
+.footer-stars img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  mix-blend-mode: lighten;
+  opacity: 0.5;
+      object-position: top;
+}
 .footer-line {
   height: 0.1px;
   background: #84c1fa;
@@ -1440,6 +1461,16 @@ footer::after {
   margin-top: 40px;
   opacity: 0.9;
 }
+
+#stars-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
 .footer-menu-columns {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1464,7 +1495,7 @@ footer::after {
   color: #faf9f5;
   font-weight: 500;
 }
-.footer-menu-column ul li a:hover{
+.footer-menu-column ul li a:hover {
   text-decoration: underline;
 }
 .footer-logo {
@@ -1486,12 +1517,12 @@ footer::after {
   max-width: max-content;
 }
 @media (max-width: 1540px) {
-  .trust-section{
+  .trust-section {
     min-height: 910px;
   }
 }
 @media (max-width: 1440px) {
-  .trust-section{
+  .trust-section {
     min-height: 820px;
   }
 }
@@ -2030,10 +2061,13 @@ footer::after {
     transform: translateY(0);
   }
   .footer-menu-column p {
-     white-space: normal;
-  word-break: break-word;
+    white-space: normal;
+    word-break: break-word;
   }
-  
+
+  #stars-canvas{
+    display: none;
+  }
 }
 
 @media (max-width: 450px) {
