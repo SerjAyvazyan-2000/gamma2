@@ -1439,7 +1439,7 @@ footer::after {
   left: 0;
   top: 0;
   height: 33%;
-  z-index: 1;
+  z-index: 0;
   width: 100%;
   -webkit-mask-image: linear-gradient(to top, transparent, black 50%);
   mask-image: linear-gradient(to top, transparent, black 50%);
